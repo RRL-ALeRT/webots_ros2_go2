@@ -1,14 +1,14 @@
 <?xml version="1.0" ?>
-<robot name="Spot">
+<robot name="Go2">
     <webots>
-        <plugin type="webots_spot.spot_driver.SpotDriver" >
+        <plugin type="webots_go2.spot_driver.SpotDriver" >
             <arena2>false</arena2>
             <arena3>false</arena3>
         </plugin>
 
         <plugin type="webots_ros2_driver::Ros2IMU">
             <enabled>true</enabled>
-            <topicName>/Spot/imu</topicName>
+            <topicName>/imu</topicName>
             <alwaysOn>true</alwaysOn>
             <frameName>base_link</frameName>
             <inertialUnitName>inertial unit</inertialUnitName>

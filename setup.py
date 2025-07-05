@@ -2,7 +2,7 @@ import os
 from glob import glob
 from setuptools import setup
 
-package_name = "webots_spot"
+package_name = "webots_go2"
 setup(
     name=package_name,
     version="0.0.0",

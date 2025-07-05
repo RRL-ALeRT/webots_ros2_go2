@@ -49,22 +49,22 @@ The world contains apriltags, a red line to test lane follower and objects for m
 ## Start
 Starting the simulation:
 ```
-ros2 launch webots_spot spot_launch.py
+ros2 launch webots_go2 go2_launch.py
 ```
 
 To launch navigation with Rviz2:
 ```
-ros2 launch webots_spot nav_launch.py set_initial_pose:=true
+ros2 launch webots_go2 nav_launch.py set_initial_pose:=true
 ```
 
 To launch mapping with Slamtoolbox:
 ```
-ros2 launch webots_spot slam_launch.py
+ros2 launch webots_go2 slam_launch.py
 ```
 
 Starting MoveIt:
 ```
-ros2 launch webots_spot moveit_launch.py
+ros2 launch webots_go2 moveit_launch.py
 ```
 
 Teleop keyboard:

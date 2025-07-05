@@ -2,8 +2,8 @@ import rclpy
 from rclpy.node import Node
 
 from builtin_interfaces.msg import Time
-from webots_spot_msgs.msg import GaitInput
-from webots_spot_msgs.srv import SpotMotion, SpotHeight
+from webots_go2_msgs.msg import GaitInput
+from webots_go2_msgs.srv import SpotMotion, SpotHeight
 from geometry_msgs.msg import Twist, TransformStamped
 from sensor_msgs.msg import JointState
 from nav_msgs.msg import Odometry
@@ -12,10 +12,10 @@ from tf2_ros.transform_broadcaster import TransformBroadcaster
 import numpy as np
 import copy
 
-from webots_spot.SpotKinematics import SpotModel
-from webots_spot.Bezier import BezierGait
+from webots_go2.SpotKinematics import SpotModel
+from webots_go2.Bezier import BezierGait
 
-from webots_spot.arena_modifier import ArenaModifier
+from webots_go2.arena_modifier import ArenaModifier
 
 NUMBER_OF_JOINTS = 12
 HEIGHT = 0.52  # From spot kinematics
@@ -158,18 +158,18 @@ class SpotDriver:
 
         ### Init motors
         self.motor_names = [
-            "front left shoulder abduction motor",
-            "front left shoulder rotation motor",
-            "front left elbow motor",
-            "front right shoulder abduction motor",
-            "front right shoulder rotation motor",
-            "front right elbow motor",
-            "rear left shoulder abduction motor",
-            "rear left shoulder rotation motor",
-            "rear left elbow motor",
-            "rear right shoulder abduction motor",
-            "rear right shoulder rotation motor",
-            "rear right elbow motor",
+            "lf_hip_joint",
+            "lf_upper_leg_joint",
+            "lf_lower_leg_joint",
+            "rf_hip_joint",
+            "rf_upper_leg_joint",
+            "rf_lower_leg_joint",
+            "lh_hip_joint",
+            "lh_upper_leg_joint",
+            "lh_lower_leg_joint",
+            "rh_hip_joint",
+            "rh_upper_leg_joint",
+            "rh_lower_leg_joint",
         ]
         self.motors = []
         for motor_name in self.motor_names:
@@ -177,7 +177,7 @@ class SpotDriver:
 
         ## Positional Sensors
         self.motor_sensor_names = [
-            name.replace("motor", "sensor") for name in self.motor_names
+            name + "_sensor" for name in self.motor_names
         ]
         self.motor_sensors = []
         self.motors_pos = []
@@ -210,17 +210,6 @@ class SpotDriver:
         self.__node.create_service(
             SpotMotion, "/Spot/blocksworld_pose", self.blocksworld_pose
         )
-
-        ## Webots Touch Sensors
-        self.touch_fl = self.__robot.getDevice("front left touch sensor")
-        self.touch_fr = self.__robot.getDevice("front right touch sensor")
-        self.touch_rl = self.__robot.getDevice("rear left touch sensor")
-        self.touch_rr = self.__robot.getDevice("rear right touch sensor")
-
-        self.touch_fl.enable(self.__robot.timestep)
-        self.touch_fr.enable(self.__robot.timestep)
-        self.touch_rl.enable(self.__robot.timestep)
-        self.touch_rr.enable(self.__robot.timestep)
 
         ## Spot Control
         self.rate = self.__node.create_rate(100)
@@ -382,9 +371,8 @@ class SpotDriver:
         self.YawControlOn = msg.yaw_control_on
 
     def __talker(self, motors_target_pos):
-        motor_offsets = [0, 0.52, -1.182]
         for idx, motor in enumerate(self.motors):
-            motor.setPosition(motor_offsets[idx % 3] + motors_target_pos[idx])
+            motor.setPosition(motors_target_pos[idx])
 
     def spot_inverse_control(self):
         pos = np.array([self.xd, self.yd, self.zd])
@@ -417,7 +405,7 @@ class SpotDriver:
             self.PenetrationDepth,
             contacts,
         )
-        joint_angles = -self.spot.IK(orn, pos, T_bf)
+        joint_angles = self.spot.IK(orn, pos, T_bf)
 
         target = [
             joint_angles[0][0],
@@ -560,22 +548,13 @@ class SpotDriver:
             odom.twist.twist.angular.z = rotation_twist[2]
             self.odom_pub.publish(odom)
 
-        unactuated_joints = [
-            "front left piston motor",
-            "front right piston motor",
-            "rear left piston motor",
-            "rear right piston motor",
-        ]
-
         joint_state = JointState()
         joint_state.header.stamp = time_stamp
         joint_state.name = []
         joint_state.name.extend(self.motor_names)
-        joint_state.name.extend(unactuated_joints)
         joint_state.position = []
         joint_state.position.extend(self.motors_pos)
-        joint_state.position.extend([0.0 for _ in unactuated_joints])
-        qty = +len(self.motor_names) + len(unactuated_joints)
+        qty = +len(self.motor_names)
         joint_state.velocity = [0.0 for _ in range(qty)]
         joint_state.effort = [0.0 for _ in range(qty)]
         self.joint_state_pub.publish(joint_state)
@@ -735,11 +714,6 @@ class SpotDriver:
 
     def step(self):
         rclpy.spin_once(self.__node, timeout_sec=0)
-
-        self.front_left_lower_leg_contact = self.touch_fl.getValue()
-        self.front_right_lower_leg_contact = self.touch_fr.getValue()
-        self.rear_left_lower_leg_contact = self.touch_rl.getValue()
-        self.rear_right_lower_leg_contact = self.touch_rr.getValue()
 
         if self.fixed_motion:
             self.defined_motions()

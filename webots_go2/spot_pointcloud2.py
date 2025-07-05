@@ -10,7 +10,7 @@ from sensor_msgs.msg import Image
 
 from std_msgs.msg import Header
 from sensor_msgs.msg import PointCloud2
-import webots_spot.point_cloud2 as pc2
+import webots_go2.point_cloud2 as pc2
 
 import open3d as o3d
 from scipy.spatial.transform import Rotation as R

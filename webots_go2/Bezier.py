@@ -1,5 +1,5 @@
 import numpy as np
-from webots_spot.LieAlgebra import TransToRp
+from webots_go2.LieAlgebra import TransToRp
 import copy
 import math
 

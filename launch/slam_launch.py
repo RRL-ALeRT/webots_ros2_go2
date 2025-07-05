@@ -20,7 +20,7 @@ def generate_launch_description():
         output="screen",
     )
     slam_rviz_config = os.path.join(
-        get_package_share_directory("webots_spot"), "resource", "slam.rviz"
+        get_package_share_directory("webots_go2"), "resource", "slam.rviz"
     )
     slam_rviz = Node(
         package="rviz2",

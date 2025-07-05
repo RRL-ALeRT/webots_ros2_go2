@@ -6,10 +6,10 @@ from launch import LaunchDescription
 
 
 def generate_launch_description():
-    gpp = os.path.join(get_package_share_directory("webots_spot"), "resource")
+    gpp = os.path.join(get_package_share_directory("webots_go2"), "resource")
 
     gpp_stacker = Node(
-        package="webots_spot",
+        package="webots_go2",
         executable="gpp_stacker",
         output="screen",
     )

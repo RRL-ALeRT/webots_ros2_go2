@@ -30,7 +30,7 @@ from ament_index_python.packages import (
 )
 
 
-PACKAGE_NAME = "webots_spot"
+PACKAGE_NAME = "webots_go2"
 
 
 def generate_launch_description():
@@ -46,7 +46,7 @@ def generate_launch_description():
     # Check if moveit is installed
     if "moveit" in get_packages_with_prefixes():
         # Configuration
-        description = {"robot_description": load_file("spot.urdf")}
+        description = {"robot_description": load_file("go2.urdf")}
         description_semantic = {
             "robot_description_semantic": load_file("moveit_spot_arm.srdf")
         }

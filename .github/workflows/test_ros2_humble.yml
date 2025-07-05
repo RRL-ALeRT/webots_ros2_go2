@@ -31,7 +31,7 @@ jobs:
 
       - name: Lint sources
         uses: pre-commit/action@v3.0.1
-  webots_spot:
+  webots_go2:
     name: Webots Spot with Nav2 and Moveit2
     runs-on: ubuntu-22.04
     steps:
@@ -92,4 +92,4 @@ jobs:
           export DEBIAN_FRONTEND=noninteractive
           cd ~/ros2_ws
           source install/setup.bash
-          colcon test --ctest-args tests --packages-select webots_spot --event-handlers console_direct+ --return-code-on-test-failure
+          colcon test --ctest-args tests --packages-select webots_go2 --event-handlers console_direct+ --return-code-on-test-failure

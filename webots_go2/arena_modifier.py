@@ -1,5 +1,5 @@
-from webots_spot_msgs.msg import Int32
-from webots_spot_msgs.srv import BlockPose
+from webots_go2_msgs.msg import Int32
+from webots_go2_msgs.srv import BlockPose
 from std_srvs.srv import Empty
 
 import os
@@ -26,11 +26,11 @@ def randomise_lane(robot):
 def randomise_imgs(robot, simpler_imagebox, hazmat=False):
     if hazmat:
         img_path = os.path.join(
-            get_package_share_directory("webots_spot"), "hazmat_signs/"
+            get_package_share_directory("webots_go2"), "hazmat_signs/"
         )
     else:
         img_path = os.path.join(
-            get_package_share_directory("webots_spot"), "yolo_images/"
+            get_package_share_directory("webots_go2"), "yolo_images/"
         )
     all_imgs = os.listdir(img_path)
     three_imgs = random.sample(all_imgs, 3)
