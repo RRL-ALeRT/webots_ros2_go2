@@ -4,7 +4,7 @@ from rclpy.action import ActionServer
 from rclpy.action import ActionClient
 from rclpy.executors import MultiThreadedExecutor
 
-from webots_go2_msgs.action import Stack
+from webots_spot_msgs.action import Stack
 
 from sensor_msgs.msg import JointState
 from tf2_ros import TransformException

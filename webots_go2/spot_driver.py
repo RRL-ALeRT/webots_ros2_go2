@@ -2,8 +2,8 @@ import rclpy
 from rclpy.node import Node
 
 from builtin_interfaces.msg import Time
-from webots_go2_msgs.msg import GaitInput
-from webots_go2_msgs.srv import SpotMotion, SpotHeight
+from webots_spot_msgs.msg import GaitInput
+from webots_spot_msgs.srv import SpotMotion, SpotHeight
 from geometry_msgs.msg import Twist, TransformStamped
 from sensor_msgs.msg import JointState
 from nav_msgs.msg import Odometry

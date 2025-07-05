@@ -63,12 +63,12 @@ PROTO Go2 [
         rotation 0.704149 0.703941 0.092960 2.956152
         children [
           DEF L1_4D_Lidar_visual CadShape {
-            url "/home/skpawar1305/ros2_ws/install/unitree_go2_description/share/unitree_go2_description/meshes/L1_4D_Lidar.dae"
+            url "meshes/L1_4D_Lidar.dae"
           }
         ]
         name "lidar_l1_link"
         boundingObject DEF L1_4D_Lidar Mesh {
-          url "/home/skpawar1305/ros2_ws/install/unitree_go2_description/share/unitree_go2_description/meshes/L1_4D_Lidar.dae"
+          url "meshes/L1_4D_Lidar.dae"
         }
         physics Physics {
           density -1
@@ -83,7 +83,7 @@ PROTO Go2 [
       Solid {
         children [
           DEF trunk_visual CadShape {
-            url "/home/skpawar1305/ros2_ws/install/unitree_go2_description/share/unitree_go2_description/meshes/trunk.dae"
+            url "meshes/trunk.dae"
           }
           Solid {
             children [
@@ -176,7 +176,7 @@ PROTO Go2 [
                   rotation 1.000000 0.000000 0.000000 3.141593
                   children [
                     DEF hip_visual CadShape {
-                      url "/home/skpawar1305/ros2_ws/install/unitree_go2_description/share/unitree_go2_description/meshes/hip.dae"
+                      url "meshes/hip.dae"
                     }
                   ]
                 }
@@ -203,7 +203,7 @@ PROTO Go2 [
                     translation 0.000000 -0.095500 0.000000
                     children [
                       DEF thigh_mirror_visual CadShape {
-                        url "/home/skpawar1305/ros2_ws/install/unitree_go2_description/share/unitree_go2_description/meshes/thigh_mirror.dae"
+                        url "meshes/thigh_mirror.dae"
                       }
                       HingeJoint {
                         jointParameters HingeJointParameters {
@@ -230,7 +230,7 @@ PROTO Go2 [
                           rotation 0.000000 -1.000000 0.000000 1.780230
                           children [
                             DEF calf_visual CadShape {
-                              url "/home/skpawar1305/ros2_ws/install/unitree_go2_description/share/unitree_go2_description/meshes/calf.dae"
+                              url "meshes/calf.dae"
                             }
                             Solid {
                               translation 0.000000 0.000000 -0.213000
@@ -371,7 +371,7 @@ PROTO Go2 [
                     translation 0.000000 0.095500 0.000000
                     children [
                       DEF thigh_visual CadShape {
-                        url "/home/skpawar1305/ros2_ws/install/unitree_go2_description/share/unitree_go2_description/meshes/thigh.dae"
+                        url "meshes/thigh.dae"
                       }
                       HingeJoint {
                         jointParameters HingeJointParameters {

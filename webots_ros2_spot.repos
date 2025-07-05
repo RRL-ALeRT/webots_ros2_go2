@@ -1,7 +1,7 @@
 repositories:
-  webots_go2_msgs:
+  webots_spot_msgs:
     type: git
-    url: https://github.com/MASKOR/webots_go2_msgs.git
+    url: https://github.com/MASKOR/webots_spot_msgs.git
     version: main
   webots_go2_teleop:
     type: git
