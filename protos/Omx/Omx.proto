@@ -205,7 +205,17 @@ PROTO Omx [
                                         }
                                       ]
                                       name "gripper_left_link"
-                                      boundingObject USE gripper_left_palm
+                                      boundingObject Transform {
+                                        scale 0.001000 0.001000 0.001000
+                                        children [
+                                          Shape {
+                                            appearance USE grey
+                                            geometry DEF gripper_left_palm Mesh {
+                                              url "/home/skpawar1305/ros2_ws/install/open_manipulator_description/share/open_manipulator_description/meshes/omx/gripper_left_palm.stl"
+                                            }
+                                          }
+                                        ]
+                                      }
                                       physics Physics {
                                         density -1
                                         mass 0.001000
@@ -250,7 +260,17 @@ PROTO Omx [
                                         }
                                       ]
                                       name "gripper_right_link"
-                                      boundingObject USE gripper_right_palm
+                                      boundingObject Transform {
+                                        scale 0.001000 0.001000 0.001000
+                                        children [
+                                          Shape {
+                                            appearance USE grey
+                                            geometry DEF gripper_left_palm Mesh {
+                                              url "/home/skpawar1305/ros2_ws/install/open_manipulator_description/share/open_manipulator_description/meshes/omx/gripper_left_palm.stl"
+                                            }
+                                          }
+                                        ]
+                                      }
                                       physics Physics {
                                         density -1
                                         mass 0.001000
@@ -264,7 +284,17 @@ PROTO Omx [
                                   }
                                 ]
                                 name "link5"
-                                boundingObject USE link5
+                                boundingObject Transform {
+                                  scale 0.001000 0.001000 0.001000
+                                  children [
+                                    Shape {
+                                      appearance USE grey
+                                      geometry DEF gripper_left_palm Mesh {
+                                        url "/home/skpawar1305/ros2_ws/install/open_manipulator_description/share/open_manipulator_description/meshes/omx/gripper_left_palm.stl"
+                                      }
+                                    }
+                                  ]
+                                }
                                 physics Physics {
                                   density -1
                                   mass 0.143276
@@ -278,7 +308,17 @@ PROTO Omx [
                             }
                           ]
                           name "link4"
-                          boundingObject USE link4
+                          boundingObject Transform {
+                            scale 0.001000 0.001000 0.001000
+                            children [
+                              Shape {
+                                appearance USE grey
+                                geometry DEF gripper_left_palm Mesh {
+                                  url "/home/skpawar1305/ros2_ws/install/open_manipulator_description/share/open_manipulator_description/meshes/omx/gripper_left_palm.stl"
+                                }
+                              }
+                            ]
+                          }
                           physics Physics {
                             density -1
                             mass 0.132746
@@ -292,7 +332,17 @@ PROTO Omx [
                       }
                     ]
                     name "link3"
-                    boundingObject USE link3
+                    boundingObject Transform {
+                      scale 0.001000 0.001000 0.001000
+                      children [
+                        Shape {
+                          appearance USE grey
+                          geometry DEF gripper_left_palm Mesh {
+                            url "/home/skpawar1305/ros2_ws/install/open_manipulator_description/share/open_manipulator_description/meshes/omx/gripper_left_palm.stl"
+                          }
+                        }
+                      ]
+                    }
                     physics Physics {
                       density -1
                       mass 0.138509
@@ -306,7 +356,17 @@ PROTO Omx [
                 }
               ]
               name "link2"
-              boundingObject USE link2
+              boundingObject Transform {
+                scale 0.001000 0.001000 0.001000
+                children [
+                  Shape {
+                    appearance USE grey
+                    geometry DEF gripper_left_palm Mesh {
+                      url "/home/skpawar1305/ros2_ws/install/open_manipulator_description/share/open_manipulator_description/meshes/omx/gripper_left_palm.stl"
+                    }
+                  }
+                ]
+              }
               physics Physics {
                 density -1
                 mass 0.098407
@@ -320,7 +380,17 @@ PROTO Omx [
           }
         ]
         name "link1"
-        boundingObject USE link1
+        boundingObject Transform {
+          scale 0.001000 0.001000 0.001000
+          children [
+            Shape {
+              appearance USE grey
+              geometry DEF gripper_left_palm Mesh {
+                url "/home/skpawar1305/ros2_ws/install/open_manipulator_description/share/open_manipulator_description/meshes/omx/gripper_left_palm.stl"
+              }
+            }
+          ]
+        }
         physics Physics {
           density -1
           mass 0.079120
