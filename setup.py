@@ -31,8 +31,12 @@ setup(
             glob("protos/textures/*"),
         ),
         (
-            os.path.join("share", package_name, "protos", "SpotArm", "meshes"),
-            glob("protos/SpotArm/meshes/*"),
+            os.path.join("share", package_name, "protos", "Go2", "meshes"),
+            glob("protos/Go2/meshes/*"),
+        ),
+        (
+            os.path.join("share", package_name, "protos", "Omx", "meshes"),
+            glob("protos/Omx/meshes/*"),
         ),
         (os.path.join("share", package_name, "params"), glob("params/*.yaml")),
         (os.path.join("share", package_name, "map"), glob("map/*")),

@@ -5,6 +5,7 @@
 # Extracted from: /home/skpawar1305/ros2_ws/go2.urdf
 
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/devices/velodyne/protos/VelodynePuck.proto"
+EXTERNPROTO "../Omx/Omx.proto"
 
 PROTO Go2 [
   field  SFVec3f     translation     0 0 0
@@ -16,6 +17,8 @@ PROTO Go2 [
   field  SFBool      supervisor      FALSE  # Is `Robot.supervisor`.
   field  SFBool      synchronization TRUE   # Is `Robot.synchronization`.
   field  SFBool      selfCollision   FALSE  # Is `Robot.selfCollision`.
+  field  SFVec3f     omx_translation     0 0 0
+  field  SFRotation  omx_rotation        0 0 1 0
 ] {
   Robot {
     translation IS translation
@@ -36,6 +39,17 @@ PROTO Go2 [
       ]
     }
     children [
+      Transform {
+        translation 0.000000 0.000000 0.000000
+        rotation 0.000000 0.000000 1.000000 0.000000
+        children [
+          DEF Go2_omx Omx {
+            translation IS omx_translation
+            rotation IS omx_rotation
+            name "Go2_omx"
+          }
+        ]
+      }
       InertialUnit {
       }
       Gyro {

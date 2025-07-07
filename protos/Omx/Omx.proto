@@ -1,0 +1,337 @@
+#VRML_SIM R2025a utf8
+# license: Apache License 2.0
+# license url: http://www.apache.org/licenses/LICENSE-2.0
+# This is a proto file for Webots for the Omx
+# Extracted from: /home/skpawar1305/ros2_ws/omx.urdf
+
+PROTO Omx [
+  field  SFVec3f     translation     0 0 0
+  field  SFRotation  rotation        0 0 1 0
+  field  SFString    name            "Omx"  # Is `Robot.name`.
+  field  SFString    controller      "void" # Is `Robot.controller`.
+  field  MFString    controllerArgs  []     # Is `Robot.controllerArgs`.
+  field  SFString    customData      ""     # Is `Robot.customData`.
+  field  SFBool      supervisor      FALSE  # Is `Robot.supervisor`.
+  field  SFBool      synchronization TRUE   # Is `Robot.synchronization`.
+  field  SFBool      selfCollision   FALSE  # Is `Robot.selfCollision`.
+]
+{
+  Robot {
+    translation IS translation
+    rotation IS rotation
+    controller IS controller
+    controllerArgs IS controllerArgs
+    customData IS customData
+    supervisor IS supervisor
+    synchronization IS synchronization
+    selfCollision IS selfCollision
+    children [
+      Solid {
+        children [
+          Transform {
+            scale 0.001000 0.001000 0.001000
+            children [
+              Shape {
+                appearance DEF grey PBRAppearance {
+                  baseColor 0.200000 0.200000 0.200000
+                  roughness 1.000000
+                  metalness 0
+                }
+                geometry DEF link1 Mesh {
+                  url "/home/skpawar1305/ros2_ws/install/open_manipulator_description/share/open_manipulator_description/meshes/omx/link1.stl"
+                }
+              }
+            ]
+          }
+          HingeJoint {
+            jointParameters HingeJointParameters {
+              axis 0.000000 0.000000 1.000000
+              anchor 0.012000 0.000000 0.000000
+              dampingConstant 0.1
+            }
+            device [
+              RotationalMotor {
+                name "joint1"
+                maxVelocity 4.8
+                minPosition -3.141592653589793
+                maxPosition 3.141592653589793
+                maxTorque 1000.0
+              }
+              PositionSensor {
+                name "joint1_sensor"
+              }
+            ]
+            endPoint Solid {
+              translation 0.012000 0.000000 0.000000
+              children [
+                Transform {
+                  translation 0.000000 0.000000 0.019000
+                  scale 0.001000 0.001000 0.001000
+                  children [
+                    Shape {
+                      appearance USE grey
+                      geometry DEF link2 Mesh {
+                        url "/home/skpawar1305/ros2_ws/install/open_manipulator_description/share/open_manipulator_description/meshes/omx/link2.stl"
+                      }
+                    }
+                  ]
+                }
+                HingeJoint {
+                  jointParameters HingeJointParameters {
+                    axis 0.000000 1.000000 0.000000
+                    anchor 0.000000 0.000000 0.059500
+                    dampingConstant 0.1
+                  }
+                  device [
+                    RotationalMotor {
+                      name "joint2"
+                      maxVelocity 4.8
+                      minPosition -1.5
+                      maxPosition 1.5
+                      maxTorque 1000.0
+                    }
+                    PositionSensor {
+                      name "joint2_sensor"
+                    }
+                  ]
+                  endPoint Solid {
+                    translation 0.000000 0.000000 0.059500
+                    children [
+                      Transform {
+                        scale 0.001000 0.001000 0.001000
+                        children [
+                          Shape {
+                            appearance USE grey
+                            geometry DEF link3 Mesh {
+                              url "/home/skpawar1305/ros2_ws/install/open_manipulator_description/share/open_manipulator_description/meshes/omx/link3.stl"
+                            }
+                          }
+                        ]
+                      }
+                      HingeJoint {
+                        jointParameters HingeJointParameters {
+                          axis 0.000000 1.000000 0.000000
+                          anchor 0.024000 0.000000 0.128000
+                          dampingConstant 0.1
+                        }
+                        device [
+                          RotationalMotor {
+                            name "joint3"
+                            maxVelocity 4.8
+                            minPosition -1.5
+                            maxPosition 1.4
+                            maxTorque 1000.0
+                          }
+                          PositionSensor {
+                            name "joint3_sensor"
+                          }
+                        ]
+                        endPoint Solid {
+                          translation 0.024000 0.000000 0.128000
+                          children [
+                            Transform {
+                              scale 0.001000 0.001000 0.001000
+                              children [
+                                Shape {
+                                  appearance USE grey
+                                  geometry DEF link4 Mesh {
+                                    url "/home/skpawar1305/ros2_ws/install/open_manipulator_description/share/open_manipulator_description/meshes/omx/link4.stl"
+                                  }
+                                }
+                              ]
+                            }
+                            HingeJoint {
+                              jointParameters HingeJointParameters {
+                                axis 0.000000 1.000000 0.000000
+                                anchor 0.124000 0.000000 0.000000
+                                dampingConstant 0.1
+                              }
+                              device [
+                                RotationalMotor {
+                                  name "joint4"
+                                  maxVelocity 4.8
+                                  minPosition -1.7
+                                  maxPosition 1.97
+                                  maxTorque 1000.0
+                                }
+                                PositionSensor {
+                                  name "joint4_sensor"
+                                }
+                              ]
+                              endPoint Solid {
+                                translation 0.124000 0.000000 0.000000
+                                children [
+                                  Transform {
+                                    scale 0.001000 0.001000 0.001000
+                                    children [
+                                      Shape {
+                                        appearance USE grey
+                                        geometry DEF link5 Mesh {
+                                          url "/home/skpawar1305/ros2_ws/install/open_manipulator_description/share/open_manipulator_description/meshes/omx/link5.stl"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                  SliderJoint {
+                                    jointParameters JointParameters {
+                                      axis 0.000000 1.000000 0.000000
+                                      dampingConstant 0.1
+                                    }
+                                    device [
+                                      LinearMotor {
+                                        name "gripper_left_joint"
+                                        maxVelocity 4.8
+                                        minPosition -0.011
+                                        maxPosition 0.02
+                                        maxForce 1000.0
+                                      }
+                                      PositionSensor {
+                                        name "gripper_left_joint_sensor"
+                                      }
+                                    ]
+                                    endPoint Solid {
+                                      translation 0.081700 0.021000 0.000000
+                                      children [
+                                        Transform {
+                                          scale 0.001000 0.001000 0.001000
+                                          children [
+                                            Shape {
+                                              appearance USE grey
+                                              geometry DEF gripper_left_palm Mesh {
+                                                url "/home/skpawar1305/ros2_ws/install/open_manipulator_description/share/open_manipulator_description/meshes/omx/gripper_left_palm.stl"
+                                              }
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                      name "gripper_left_link"
+                                      boundingObject USE gripper_left_palm
+                                      physics Physics {
+                                        density -1
+                                        mass 0.001000
+                                        centerOfMass [ 0.000000 0.000000 0.000000 ]
+                                        inertiaMatrix [
+                                          1.000000e-06 1.000000e-06 1.000000e-06
+                                          0.000000e+00 0.000000e+00 0.000000e+00
+                                        ]
+                                      }
+                                    }
+                                  }
+                                  SliderJoint {
+                                    jointParameters JointParameters {
+                                      axis 0.000000 -1.000000 0.000000
+                                      dampingConstant 0.7
+                                    }
+                                    device [
+                                      LinearMotor {
+                                        name "gripper_right_joint"
+                                        maxVelocity 4.8
+                                        minPosition -0.011
+                                        maxPosition 0.02
+                                        maxForce 1000.0
+                                      }
+                                      PositionSensor {
+                                        name "gripper_right_joint_sensor"
+                                      }
+                                    ]
+                                    endPoint Solid {
+                                      translation 0.081700 -0.021000 0.000000
+                                      children [
+                                        Transform {
+                                          scale 0.001000 0.001000 0.001000
+                                          children [
+                                            Shape {
+                                              appearance USE grey
+                                              geometry DEF gripper_right_palm Mesh {
+                                                url "/home/skpawar1305/ros2_ws/install/open_manipulator_description/share/open_manipulator_description/meshes/omx/gripper_right_palm.stl"
+                                              }
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                      name "gripper_right_link"
+                                      boundingObject USE gripper_right_palm
+                                      physics Physics {
+                                        density -1
+                                        mass 0.001000
+                                        centerOfMass [ 0.000000 0.000000 0.000000 ]
+                                        inertiaMatrix [
+                                          1.000000e-06 1.000000e-06 1.000000e-06
+                                          0.000000e+00 0.000000e+00 0.000000e+00
+                                        ]
+                                      }
+                                    }
+                                  }
+                                ]
+                                name "link5"
+                                boundingObject USE link5
+                                physics Physics {
+                                  density -1
+                                  mass 0.143276
+                                  centerOfMass [ 0.044207 0.000000 0.008914 ]
+                                  inertiaMatrix [
+                                    8.087075e-05 7.598046e-05 9.312735e-05
+                                    0.000000e+00 -1.015790e-06 0.000000e+00
+                                  ]
+                                }
+                              }
+                            }
+                          ]
+                          name "link4"
+                          boundingObject USE link4
+                          physics Physics {
+                            density -1
+                            mass 0.132746
+                            centerOfMass [ 0.090910 0.000389 0.000224 ]
+                            inertiaMatrix [
+                              3.065418e-05 2.423029e-04 2.515506e-04
+                              -1.276416e-06 -2.687442e-07 1.155955e-08
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                    name "link3"
+                    boundingObject USE link3
+                    physics Physics {
+                      density -1
+                      mass 0.138509
+                      centerOfMass [ 0.010308 0.000377 0.101702 ]
+                      inertiaMatrix [
+                        3.305538e-04 3.429045e-04 6.034650e-05
+                        -9.794098e-08 -3.850571e-05 -1.571752e-06
+                      ]
+                    }
+                  }
+                }
+              ]
+              name "link2"
+              boundingObject USE link2
+              physics Physics {
+                density -1
+                mass 0.098407
+                centerOfMass [ -0.000302 0.000540 0.047433 ]
+                inertiaMatrix [
+                  3.454342e-05 3.268933e-05 1.885032e-05
+                  -1.603110e-08 -3.837515e-07 2.851193e-08
+                ]
+              }
+            }
+          }
+        ]
+        name "link1"
+        boundingObject USE link1
+        physics Physics {
+          density -1
+          mass 0.079120
+          centerOfMass [ 0.000309 0.000000 -0.000122 ]
+          inertiaMatrix [
+            1.250523e-05 2.189836e-05 1.926736e-05
+            0.000000e+00 -1.785521e-07 0.000000e+00
+          ]
+        }
+      }
+    ]
+    name IS name
+  }
+}
