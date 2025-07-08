@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<robot name="SpotArm" xmlns:xacro="http://ros.org/wiki/xacro">
+<robot name="Omx" xmlns:xacro="http://ros.org/wiki/xacro">
   <webots>
     <plugin type="webots_ros2_control::Ros2Control"/>
   </webots>
@@ -7,59 +7,44 @@
     <hardware>
       <plugin>webots_ros2_control::Ros2ControlSystem</plugin>
     </hardware>
+    <link name="dummy_link">
+      <command_interface name="dummy_command"/>
+      <state_interface name="dummy_state"/>
+    </link>
 
-    <!-- SpotArm -->
-    <joint name="spotarm_1_joint">
+    <!-- Omx -->
+    <joint name="joint_1">
       <command_interface name="position">
         </command_interface>
       <state_interface name="position"/>
       <state_interface name="velocity"/>
     </joint>
-    <joint name="spotarm_2_joint">
+    <joint name="joint_2">
       <command_interface name="position">
         </command_interface>
       <state_interface name="position"/>
       <state_interface name="velocity"/>
     </joint>
-    <joint name="spotarm_3_joint">
+    <joint name="joint_3">
       <command_interface name="position">
         </command_interface>
       <state_interface name="position"/>
       <state_interface name="velocity"/>
     </joint>
-    <joint name="spotarm_4_joint">
+    <joint name="joint_4">
       <command_interface name="position">
         </command_interface>
       <state_interface name="position"/>
       <state_interface name="velocity"/>
     </joint>
-    <joint name="Slider11">
+    <!-- Omx Gripper -->
+    <joint name="gripper_left_joint">
       <command_interface name="position">
         </command_interface>
       <state_interface name="position"/>
       <state_interface name="velocity"/>
     </joint>
-    <joint name="spotarm_5_joint">
-      <command_interface name="position">
-        </command_interface>
-      <state_interface name="position"/>
-      <state_interface name="velocity"/>
-    </joint>
-    <joint name="spotarm_6_joint">
-      <command_interface name="position">
-        </command_interface>
-      <state_interface name="position"/>
-      <state_interface name="velocity"/>
-    </joint>
-
-    <!-- Tiago Gripper -->
-    <joint name="gripper_left_finger_joint">
-      <command_interface name="position">
-        </command_interface>
-      <state_interface name="position"/>
-      <state_interface name="velocity"/>
-    </joint>
-    <joint name="gripper_right_finger_joint">
+    <joint name="gripper_right_joint">
       <command_interface name="position">
         </command_interface>
       <state_interface name="position"/>

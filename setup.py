@@ -18,6 +18,8 @@ setup(
         (os.path.join("share", package_name, "yolo_images"), glob("yolo_images/*")),
         (os.path.join("share", package_name, "hazmat_signs"), glob("hazmat_signs/*")),
         (os.path.join("share", package_name, "protos"), glob("protos/*.proto")),
+        (os.path.join("share", package_name, "protos/Go2"), glob("protos/Go2/*.proto")),
+        (os.path.join("share", package_name, "protos/Omx"), glob("protos/Omx/*.proto")),
         (
             os.path.join("share", package_name, "protos", "icons"),
             glob("protos/icons/*"),
