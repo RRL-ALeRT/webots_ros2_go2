@@ -75,7 +75,7 @@ jobs:
           sudo apt remove -y libmagickcore-dev
           sudo apt install -y libunwind-dev graphicsmagick-libmagick-dev-compat # Nav2 dependency
           rosdep install --from-paths ./ --ignore-src -y
-          vcs import --recursive src --skip-existing --input src/webots_ros2_go2/webots_ros2_go2.repos
+          vcs import --recursive src --skip-existing --input src/webots_ros2_go2/webots_ros2_spot.repos
           chmod +x src/webots_ros2/webots_ros2_driver/webots_ros2_driver/ros2_supervisor.py
       - name: Build Packages
         run: |
