@@ -32,7 +32,7 @@ jobs:
       - name: Lint sources
         uses: pre-commit/action@v3.0.1
   webots_go2:
-    name: Webots Spot with Nav2 and Moveit2
+    name: Webots Go2 with Nav2 and Moveit2
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout
@@ -65,7 +65,7 @@ jobs:
       - name: Create Workspace
         run: |
           mkdir -p ~/ros2_ws/src
-          cp -r $GITHUB_WORKSPACE/. ~/ros2_ws/src/webots_ros2_spot
+          cp -r $GITHUB_WORKSPACE/. ~/ros2_ws/src/webots_ros2_go2
       - name: Install Webots Spot Dependencies
         run: |
           cd ~/ros2_ws
@@ -75,7 +75,7 @@ jobs:
           sudo apt remove -y libmagickcore-dev
           sudo apt install -y libunwind-dev graphicsmagick-libmagick-dev-compat # Nav2 dependency
           rosdep install --from-paths ./ --ignore-src -y
-          vcs import --recursive src --skip-existing --input src/webots_ros2_spot/webots_ros2_spot.repos
+          vcs import --recursive src --skip-existing --input src/webots_ros2_go2/webots_ros2_go2.repos
           chmod +x src/webots_ros2/webots_ros2_driver/webots_ros2_driver/ros2_supervisor.py
       - name: Build Packages
         run: |

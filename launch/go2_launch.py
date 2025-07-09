@@ -80,12 +80,12 @@ def get_ros2_nodes(*args):
     )
 
     initial_manipulator_positioning = Node(
-        package="webots_omx",
+        package="webots_go2",
         executable="retract_manipulator",
         output="screen",
     )
 
-    return [omx_driver, waiting_nodes]
+    return [omx_driver, waiting_nodes, initial_manipulator_positioning]
 
 
 def generate_launch_description():

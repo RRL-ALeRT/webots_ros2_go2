@@ -133,7 +133,7 @@ class SpotDriver:
         self.arena3 = properties["arena3"] == "true"
 
         self.__robot = webots_node.robot
-        self.spot_node = self.__robot.getFromDef("Spot")
+        self.spot_node = self.__robot.getFromDef("Go2")
 
         self.spot_translation = self.spot_node.getField("translation")
 
@@ -188,27 +188,27 @@ class SpotDriver:
 
         ## Topics
         self.__node.create_subscription(
-            GaitInput, "/Spot/inverse_gait_input", self.__gait_cb, 1
+            GaitInput, "/Go2/inverse_gait_input", self.__gait_cb, 1
         )
         self.__node.create_subscription(Twist, "/cmd_vel", self.__cmd_vel, 1)
         self.joint_state_pub = self.__node.create_publisher(
             JointState, "/joint_states", 1
         )
-        self.odom_pub = self.__node.create_publisher(Odometry, "/Spot/odometry", 1)
+        self.odom_pub = self.__node.create_publisher(Odometry, "/Go2/odometry", 1)
 
         ## Services
-        self.__node.create_service(SpotMotion, "/Spot/stand_up", self.__stand_motion_cb)
-        self.__node.create_service(SpotMotion, "/Spot/sit_down", self.__sit_motion_cb)
-        self.__node.create_service(SpotMotion, "/Spot/lie_down", self.__lie_motion_cb)
+        self.__node.create_service(SpotMotion, "/Go2/stand_up", self.__stand_motion_cb)
+        self.__node.create_service(SpotMotion, "/Go2/sit_down", self.__sit_motion_cb)
+        self.__node.create_service(SpotMotion, "/Go2/lie_down", self.__lie_motion_cb)
         self.__node.create_service(
-            SpotMotion, "/Spot/shake_hand", self.__shakehand_motion_cb
+            SpotMotion, "/Go2/shake_hand", self.__shakehand_motion_cb
         )
         self.__node.create_service(
-            SpotHeight, "/Spot/set_height", self.__spot_height_cb
+            SpotHeight, "/Go2/set_height", self.__spot_height_cb
         )
 
         self.__node.create_service(
-            SpotMotion, "/Spot/blocksworld_pose", self.blocksworld_pose
+            SpotMotion, "/Go2/blocksworld_pose", self.blocksworld_pose
         )
 
         ## Spot Control
@@ -309,7 +309,7 @@ class SpotDriver:
         # Override motion command
         self.fixed_motion = False
 
-        if not self.__node.count_publishers("/Spot/inverse_gait_input"):
+        if not self.__node.count_publishers("/Go2/inverse_gait_input"):
             StepLength = 0.15
             ClearanceHeight = 0.015
             PenetrationDepth = 0.003
@@ -437,7 +437,7 @@ class SpotDriver:
 
         if not self.arena2 or not self.arena3:
             transforms_to_publish = [
-                "Spot",
+                "Go2",
                 "A",
                 "B",
                 "C",
@@ -451,7 +451,7 @@ class SpotDriver:
                 "PlaceBox",
             ]
         else:
-            transforms_to_publish = ["Spot"]
+            transforms_to_publish = ["Go2"]
             for i, color in enumerate(["Red", "Green", "Blue"]):
                 transforms_to_publish.append(f"DropBox{i+1}")
                 for idx in range(3):
@@ -465,14 +465,14 @@ class SpotDriver:
             tf = TransformStamped()
             tf.header.stamp = time_stamp
             tf.header.frame_id = "odom"
-            tf._child_frame_id = x if x != "Spot" else "base_link"
+            tf._child_frame_id = x if x != "Go2" else "base_link"
 
             part = self.__robot.getFromDef(x)
             di = part.getField("translation").getSFVec3f()
             tf.transform.translation.x = -(di[0] - self.spot_translation_initial[0])
             tf.transform.translation.y = -(di[1] - self.spot_translation_initial[1])
             tf.transform.translation.z = di[2] - self.spot_translation_initial[2]
-            tf.transform.translation.z += HEIGHT + 0.095  # BASE_LINK To Ground at Rest
+            tf.transform.translation.z += HEIGHT + 0.025  # BASE_LINK To Ground at Rest
 
             r = diff_quat(
                 quat_from_angle_axis(part.getField("rotation").getSFRotation()),
@@ -494,7 +494,7 @@ class SpotDriver:
 
         self.tfb_.sendTransform(tfs)
 
-        ## /Spot/odometry
+        ## /Go2/odometry
         tf_odom_base_link = tfs[0].transform
         translation = [
             tf_odom_base_link.translation.x,

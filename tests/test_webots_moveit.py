@@ -46,13 +46,10 @@ class MoveGroupActionClient:
         motion_plan_request.start_state.is_diff = True
 
         joints = {}
-        joints["Slider11"] = 0.0
-        joints["spotarm_1_joint"] = 0.0
-        joints["spotarm_2_joint"] = 3.1415
-        joints["spotarm_3_joint"] = 3.0
-        joints["spotarm_4_joint"] = 0.0
-        joints["spotarm_5_joint"] = 0.2
-        joints["spotarm_6_joint"] = 0.2
+        joints["joint1"] = 0.0
+        joints["joint2"] = 0.6
+        joints["joint3"] = 1.3
+        joints["joint4"] = 0.2
 
         constraints = Constraints()
         for joint, angle in joints.items():
@@ -67,7 +64,7 @@ class MoveGroupActionClient:
         motion_plan_request.goal_constraints.append(constraints)
 
         motion_plan_request.pipeline_id = "move_group"
-        motion_plan_request.group_name = "spot_arm"
+        motion_plan_request.group_name = "go2_omx"
         motion_plan_request.num_planning_attempts = 10
         motion_plan_request.allowed_planning_time = 5.0
         motion_plan_request.max_velocity_scaling_factor = 0.5
@@ -99,7 +96,7 @@ def generate_test_description():
             os.path.join(
                 get_package_share_directory("webots_go2"),
                 "launch",
-                "spot_launch.py",
+                "go2_launch.py",
             )
         ),
         launch_arguments={"mode": "fast", "nav": "true"}.items(),
@@ -146,7 +143,7 @@ class TestSpot(TestWebots):
 
         def on_joint_state_message_received(message):
             for name, position in zip(message.name, message.position):
-                if name == "spotarm_6_joint":
+                if name == "joint2":
                     if position > 0.1:
                         return True
             return False

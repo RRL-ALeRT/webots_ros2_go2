@@ -197,7 +197,7 @@ class ArenaModifier:
         self.arena3_score_pub.publish(score_msg)
 
     def spot_has_passed_door3(self):
-        spot_x = self.__robot.getFromDef("Spot").getField("translation").getSFVec3f()[0]
+        spot_x = self.__robot.getFromDef("Go2").getField("translation").getSFVec3f()[0]
         door3_x = (
             self.__robot.getFromDef("Door3").getField("translation").getSFVec3f()[0]
         )

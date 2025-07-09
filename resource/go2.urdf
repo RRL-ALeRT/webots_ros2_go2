@@ -237,6 +237,13 @@
     <parent link="velodyne_base_link"/>
     <child link="velodyne"/>
   </joint>
+  <link name="Velodyne_Puck">
+  </link>
+  <joint name="velodyne_base_VelodynePuck" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <parent link="velodyne"/>
+    <child link="Velodyne_Puck"/>
+  </joint>
   <link name="velodyne">
     <inertial>
       <mass value="0.01"/>

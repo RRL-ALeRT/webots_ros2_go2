@@ -1,24 +1,15 @@
-controller_names:
-  - spotarm_joint_trajectory_controller
-  - tiago_gripper_joint_trajectory_controller
+# MoveIt uses this configuration for controller management
 
-spotarm_joint_trajectory_controller:
-  action_ns: follow_joint_trajectory
-  type: FollowJointTrajectory
-  default: true
-  joints:
-    - spotarm_1_joint
-    - spotarm_2_joint
-    - spotarm_3_joint
-    - spotarm_4_joint
-    - Slider11
-    - spotarm_5_joint
-    - spotarm_6_joint
+moveit_controller_manager: moveit_simple_controller_manager/MoveItSimpleControllerManager
 
-tiago_gripper_joint_trajectory_controller:
-  action_ns: follow_joint_trajectory
-  type: FollowJointTrajectory
-  default: true
-  joints:
-    - gripper_left_finger_joint
-    - gripper_right_finger_joint
+moveit_simple_controller_manager:
+  controller_names:
+    - go2_omx_controller
+
+  go2_omx_controller:
+    type: FollowJointTrajectory
+    joints:
+      - joint1
+      - joint2
+      - joint3
+      - joint4

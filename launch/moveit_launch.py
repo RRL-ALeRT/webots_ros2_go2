@@ -48,7 +48,7 @@ def generate_launch_description():
         # Configuration
         description = {"robot_description": load_file("go2.urdf")}
         description_semantic = {
-            "robot_description_semantic": load_file("moveit_spot_arm.srdf")
+            "robot_description_semantic": load_file("moveit_go2.srdf")
         }
         description_kinematics = {
             "robot_description_kinematics": load_yaml("moveit_kinematics.yaml")
