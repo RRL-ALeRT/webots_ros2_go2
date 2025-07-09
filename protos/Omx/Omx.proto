@@ -36,7 +36,7 @@ PROTO Omx [
               metalness 0
             }
             geometry DEF link1 Mesh {
-              url "/home/skpawar1305/ros2_ws/src/open_manipulator_x_description/meshes/link1.stl"
+              url "meshes/link1.stl"
             }
           }
         ]
@@ -69,7 +69,7 @@ PROTO Omx [
                 Shape {
                   appearance USE grey
                   geometry DEF link2 Mesh {
-                    url "/home/skpawar1305/ros2_ws/src/open_manipulator_x_description/meshes/link2.stl"
+                    url "meshes/link2.stl"
                   }
                 }
               ]
@@ -101,7 +101,7 @@ PROTO Omx [
                       Shape {
                         appearance USE grey
                         geometry DEF link3 Mesh {
-                          url "/home/skpawar1305/ros2_ws/src/open_manipulator_x_description/meshes/link3.stl"
+                          url "meshes/link3.stl"
                         }
                       }
                     ]
@@ -133,7 +133,7 @@ PROTO Omx [
                             Shape {
                               appearance USE grey
                               geometry DEF link4 Mesh {
-                                url "/home/skpawar1305/ros2_ws/src/open_manipulator_x_description/meshes/link4.stl"
+                                url "meshes/link4.stl"
                               }
                             }
                           ]
@@ -165,7 +165,7 @@ PROTO Omx [
                                   Shape {
                                     appearance USE grey
                                     geometry DEF link5 Mesh {
-                                      url "/home/skpawar1305/ros2_ws/src/open_manipulator_x_description/meshes/link5.stl"
+                                      url "meshes/link5.stl"
                                     }
                                   }
                                 ]
@@ -196,7 +196,7 @@ PROTO Omx [
                                         Shape {
                                           appearance USE grey
                                           geometry DEF gripper_left_palm Mesh {
-                                            url "/home/skpawar1305/ros2_ws/src/open_manipulator_x_description/meshes/gripper_left_palm.stl"
+                                            url "meshes/gripper_left_palm.stl"
                                           }
                                         }
                                       ]
@@ -248,7 +248,7 @@ PROTO Omx [
                                         Shape {
                                           appearance USE grey
                                           geometry DEF gripper_right_palm Mesh {
-                                            url "/home/skpawar1305/ros2_ws/src/open_manipulator_x_description/meshes/gripper_right_palm.stl"
+                                            url "meshes/gripper_right_palm.stl"
                                           }
                                         }
                                       ]

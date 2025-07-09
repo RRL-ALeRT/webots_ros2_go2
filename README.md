@@ -1,8 +1,7 @@
 # For Go2 (Todo)
 
-Use robot description from https://github.com/khaledgabr77/unitree_go2_ros2/tree/main/unitree_go2_description
-
-
+Used robot descriptions from https://github.com/khaledgabr77/unitree_go2_ros2/tree/main/unitree_go2_description
+and https://github.com/sparcs-unipd/open_manipulator_X/tree/main/open_manipulator_x_description.
 
 # Webots ROS2 Spot
 

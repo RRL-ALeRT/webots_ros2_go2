@@ -34,23 +34,6 @@ def get_ros2_nodes(*args):
             {"set_robot_state_publisher": False},
             omx_ros2_control_params,
         ],
-        remappings=[('/robot_description','/Omx/robot_description')],
-    )
-
-    with open(os.path.join(package_dir, "resource", "omx_control.urdf")) as f:
-        robot_desc = f.read()
-
-    robot_state_publisher = Node(
-        package="robot_state_publisher",
-        executable="robot_state_publisher",
-        output="screen",
-        parameters=[
-            {
-                "robot_description": robot_desc,
-                "use_sim_time": True,
-            }
-        ],
-        remappings=[('/robot_description','/Omx/robot_description')],
     )
 
     # ROS2 control spawners for omx
@@ -102,7 +85,7 @@ def get_ros2_nodes(*args):
         output="screen",
     )
 
-    return [robot_state_publisher, omx_driver, waiting_nodes]
+    return [omx_driver, waiting_nodes]
 
 
 def generate_launch_description():

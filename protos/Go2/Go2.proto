@@ -17,8 +17,6 @@ PROTO Go2 [
   field  SFBool      supervisor      FALSE  # Is `Robot.supervisor`.
   field  SFBool      synchronization TRUE   # Is `Robot.synchronization`.
   field  SFBool      selfCollision   FALSE  # Is `Robot.selfCollision`.
-  field  SFVec3f     omx_translation     0 0 0.05
-  field  SFRotation  omx_rotation        0 0 1 0
 ] {
   Robot {
     translation IS translation

@@ -354,8 +354,6 @@ DEF Spot Go2 {
   rotation 0 0 1 -3.14159
   controller "<extern>"
   supervisor TRUE
-  omx_translation 0 0 0.05
-  omx_rotation 0 0 1 0
 }
 DEF Lane1 Solid {
   translation 6.70814 -1.56573 0.001
