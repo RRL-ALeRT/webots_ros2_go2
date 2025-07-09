@@ -176,9 +176,7 @@ class SpotDriver:
             self.motors.append(self.__robot.getDevice(motor_name))
 
         ## Positional Sensors
-        self.motor_sensor_names = [
-            name + "_sensor" for name in self.motor_names
-        ]
+        self.motor_sensor_names = [name + "_sensor" for name in self.motor_names]
         self.motor_sensors = []
         self.motors_pos = []
         for idx, sensor_name in enumerate(self.motor_sensor_names):
@@ -203,9 +201,7 @@ class SpotDriver:
         self.__node.create_service(
             SpotMotion, "/Go2/shake_hand", self.__shakehand_motion_cb
         )
-        self.__node.create_service(
-            SpotHeight, "/Go2/set_height", self.__spot_height_cb
-        )
+        self.__node.create_service(SpotHeight, "/Go2/set_height", self.__spot_height_cb)
 
         self.__node.create_service(
             SpotMotion, "/Go2/blocksworld_pose", self.blocksworld_pose
