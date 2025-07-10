@@ -46,8 +46,8 @@ class MoveGroupActionClient:
         motion_plan_request.start_state.is_diff = True
 
         joints = {}
-        joints["joint1"] = 0.0
-        joints["joint2"] = 0.6
+        joints["joint1"] = 2.0
+        joints["joint2"] = -1.5
         joints["joint3"] = 1.3
         joints["joint4"] = 0.2
 
@@ -143,7 +143,7 @@ class TestSpot(TestWebots):
 
         def on_joint_state_message_received(message):
             for name, position in zip(message.name, message.position):
-                if name == "joint2":
+                if name == "joint1":
                     if position > 0.1:
                         return True
             return False
