@@ -96,12 +96,17 @@ PROTO Omx [
                 translation 0.000000 0.000000 0.059500
                 children [
                   Transform {
-                    scale 0.001000 0.001000 0.001000
+                    translation 0 0 0.1
+                    # scale 0.001000 0.001000 0.001000
                     children [
                       Shape {
-                        appearance USE grey
-                        geometry DEF link3 Mesh {
-                          url "meshes/link3.stl"
+                        appearance DEF red PBRAppearance {
+                          baseColor 0.8 0.200000 0.200000
+                          roughness 1.000000
+                          metalness 0
+                        }
+                        geometry Box {
+                          size 0.02 0.02 0.14
                         }
                       }
                     ]
@@ -109,7 +114,7 @@ PROTO Omx [
                   HingeJoint {
                     jointParameters HingeJointParameters {
                       axis 0.000000 1.000000 0.000000
-                      anchor 0.024000 0.000000 0.128000
+                      anchor 0.024000 0.000000 0.18000
                       dampingConstant 0.1
                     }
                     device [
@@ -125,15 +130,20 @@ PROTO Omx [
                       }
                     ]
                     endPoint Solid {
-                      translation 0.024000 0.000000 0.128000
+                      translation 0.024000 0.000000 0.18000
                       children [
                         Transform {
-                          scale 0.001000 0.001000 0.001000
+                          translation 0.1 0 0
+                          # scale 0.001000 0.001000 0.001000
                           children [
                             Shape {
-                              appearance USE grey
-                              geometry DEF link4 Mesh {
-                                url "meshes/link4.stl"
+                              appearance DEF green PBRAppearance {
+                                baseColor 0.2 0.800000 0.200000
+                                roughness 1.000000
+                                metalness 0
+                              }
+                              geometry Box {
+                                size 0.2 0.03 0.03
                               }
                             }
                           ]
@@ -141,7 +151,7 @@ PROTO Omx [
                         HingeJoint {
                           jointParameters HingeJointParameters {
                             axis 0.000000 1.000000 0.000000
-                            anchor 0.124000 0.000000 0.000000
+                            anchor 0.201000 0.000000 0.000000
                             dampingConstant 0.1
                           }
                           device [
@@ -157,7 +167,7 @@ PROTO Omx [
                             }
                           ]
                           endPoint Solid {
-                            translation 0.124000 0.000000 0.000000
+                            translation 0.201000 0.000000 0.000000
                             children [
                               Transform {
                                 scale 0.001000 0.001000 0.001000
