@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="go2">
+    <xacro:arg name="initial_positions_file" default="initial_positions.yaml" />
+
+    <!-- Import go2 urdf file -->
+    <xacro:include filename="$(find webots_go2)/resource/go2.urdf" />
+
+    <!-- Import control_xacro -->
+    <xacro:include filename="go2.ros2_control.xacro" />
+
+
+    <xacro:go2_ros2_control name="FakeSystem" initial_positions_file="$(arg initial_positions_file)"/>
+
+</robot>
